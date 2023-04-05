@@ -75,4 +75,46 @@ def plot_lines(M):
 
     plt.show()
 
-plot_lines(A_system)
+# plot_lines(A_system)
+
+
+A_2=np.array([
+    [-1,3],
+    [3,-9]
+],dtype=float)
+
+b_2=np.array([7,1],dtype=float)
+
+d_2=np.linalg.det(A_2)
+
+print(f"Determinant of matrix A_2: {d_2:.2f}")
+
+try:
+    x_2=np.linalg.solve(A_2,b_2)
+except np.linalg.LinAlgError as err:
+    print(err)
+
+
+A_2_system=np.hstack((A_2,b_2.reshape((2,1))))
+print(A_2_system)
+
+
+# Function .copy() is used to keep the original matrix without any changes.
+A_2_system_res=A_2_system.copy()
+
+A_2_system_res[1]=3*A_2_system_res[0]+A_2_system_res[1]
+print(A_2_system_res)
+
+# plot_lines(A_2_system)
+
+b_3=np.array([7,-21],dtype=float)
+A_3_system=np.hstack((A_2,b_3.reshape((2,1))))
+print(A_3_system)
+
+
+A_3_system_res=A_3_system.copy()
+
+A_3_system_res[1]=3*A_3_system_res[0]+A_3_system_res[1]
+print(A_3_system_res)
+
+plot_lines(A_3_system)
