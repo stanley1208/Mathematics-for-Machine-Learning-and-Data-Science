@@ -122,3 +122,50 @@ def augmented_to_ref(A, b):
 A_ref = augmented_to_ref(A, b)
 
 print(A_ref)
+
+
+### START CODE HERE ###
+
+# find the value of x_4 from the last line of the reduced matrix A_ref
+x_4 = A_ref[3,3]/A_ref[3,4]
+
+# find the value of x_3 from the previous row of the matrix. Use value of x_4.
+x_3 = (A_ref[2,4]-A_ref[2,3]*x_4)/A_ref[2,2]
+
+# find the value of x_2 from the second row of the matrix. Use values of x_3 and x_4
+x_2 = (A_ref[1,4]-A_ref[1,3]*x_4-A_ref[1,2]*x_3)/A_ref[1,1]
+
+# find the value of x_1 from the first row of the matrix. Use values of x_2, x_3 and x_4
+x_1 = (A_ref[0,4]-A_ref[0,3]*x_4-A_ref[0,2]*x_3-A_ref[0,1]*x_2)/A_ref[0,0]
+### END CODE HERE ###
+
+print(x_1, x_2, x_3, x_4)
+
+
+def ref_to_diagonal(A_ref):
+    ### START CODE HERE ###
+    # multiply row 3 of the matrix A_ref by -3 and add it to the row 2
+    A_diag = AddRows(A_ref,3,2,-3)
+
+    # multiply row 3 of the new matrix A_diag by -3 and add it to the row 1
+    A_diag = AddRows(A_diag,3,1,-3)
+
+    # add row 3 of the new matrix A_diag to the row 0, replacing row 0
+    A_diag = AddRows(A_diag,3,0,1)
+
+    # multiply row 2 of the new matrix A_diag by -4 and add it to the row 1
+    A_diag = AddRows(A_diag,2,1,-4)
+
+    # add row 2 of the new matrix A_diag to the row 0, replacing row 0
+    A_diag = AddRows(A_diag,2,0,1)
+
+    # multiply row 1 of the new matrix A_diag by -2 and add it to the row 0
+    A_diag = AddRows(A_diag,1,0,-2)
+    ### END CODE HERE ###
+
+    return A_diag
+
+
+A_diag = ref_to_diagonal(A_ref)
+
+print(A_diag)
