@@ -29,3 +29,11 @@ v = np.array([
 # Arguments: list of vectors as NumPy arrays, labels, colors.
 plot_vectors([v], [f"$v$"], ["black"])
 plot_vectors([v, 2*v, -2*v], [f"$v$", f"$2v$", f"$-2v$"], ["black", "green", "blue"])
+
+
+v=np.array([[1],[3]])
+w=np.array([[4],[-1]])
+
+plot_vectors([v,w,v+w],[f'$v$',f'$w$',f'$v+w$'],['black','red','green'])
+
+print("The norm of vector v is",np.linalg.norm(v))
