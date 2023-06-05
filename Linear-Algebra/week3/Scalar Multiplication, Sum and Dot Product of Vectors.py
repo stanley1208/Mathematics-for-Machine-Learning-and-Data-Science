@@ -1,14 +1,15 @@
 import numpy as np
+
+
 import matplotlib.pyplot as plt
 
-import matplotlib.pyplot as plt
-
-
+# Visualization of a Vector
 def plot_vectors(list_v, list_label, list_color):
     _, ax = plt.subplots(figsize=(10, 10))
     ax.tick_params(axis='x', labelsize=14)
     ax.tick_params(axis='y', labelsize=14)
     ax.set_xticks(np.arange(-10, 10))
+
     ax.set_yticks(np.arange(-10, 10))
 
     plt.axis([-10, 10, -10, 10])
@@ -31,9 +32,39 @@ plot_vectors([v], [f"$v$"], ["black"])
 plot_vectors([v, 2*v, -2*v], [f"$v$", f"$2v$", f"$-2v$"], ["black", "green", "blue"])
 
 
+# Sum of Vectors
 v=np.array([[1],[3]])
 w=np.array([[4],[-1]])
 
 plot_vectors([v,w,v+w],[f'$v$',f'$w$',f'$v+w$'],['black','red','green'])
 
+# Norm of a Vector
 print("The norm of vector v is",np.linalg.norm(v))
+
+
+# Dot Product
+x=[1,-2,-5]
+y=[4,3,-1]
+
+def dot(x,y):
+    s=0
+    for xi,yi in zip(x,y):
+        s+=xi*yi
+    return s
+
+print("The dot product of x and y:", dot(x,y))
+print("Numpy dot product of x and y:", np.dot(x,y))
+
+print("The @ dot product of x and y:", np.array(x) @ np.array(y))
+
+try:
+    print(x @ y)
+except TypeError as err:
+    print(err)
+
+x=np.array(x)
+y=np.array(y)
+
+
+
+
