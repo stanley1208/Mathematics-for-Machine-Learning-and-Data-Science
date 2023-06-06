@@ -1,9 +1,12 @@
 import numpy as np
-
+import time
 
 import matplotlib.pyplot as plt
 
 # Visualization of a Vector
+import openpyxl.styles.colors
+
+
 def plot_vectors(list_v, list_label, list_color):
     _, ax = plt.subplots(figsize=(10, 10))
     ax.tick_params(axis='x', labelsize=14)
@@ -66,5 +69,31 @@ x=np.array(x)
 y=np.array(y)
 
 
+a=np.random.rand(1000000)
+b=np.random.rand(1000000)
 
 
+t1=time.time()
+c=dot(a,b)
+t2=time.time()
+print('Dot product: ',c)
+print('Time for dot product: ',str(t2-t1)+'seconds')
+
+t1=time.time()
+c=np.dot(a,b)
+t2=time.time()
+print('numpy Dot product: ',c)
+print('Time for numpy dot product: ',str(t2-t1)+'seconds')
+
+
+
+t1=time.time()
+c=a@b
+t2=time.time()
+print('@ Dot product: ',c)
+print('Time for @ dot product: ',str(t2-t1)+'seconds')
+
+
+i=np.array([1,0,0])
+j=np.array([0,1,0])
+print("Dot product: ",dot(i,j))
