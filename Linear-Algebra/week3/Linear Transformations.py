@@ -36,3 +36,6 @@ v=np.array([[3],[5]])
 w=L(v)
 
 print("Original vector:\n",v,"\n Result of the transformation:\n",w)
+
+
+
