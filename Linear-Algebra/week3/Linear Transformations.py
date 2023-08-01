@@ -1,3 +1,4 @@
+import matplotlib.pyplot as plt
 import numpy as np
 import cv2
 
@@ -58,5 +59,23 @@ print(e2)
 print(transformation_result_hscaling)
 
 
+def T_reflection_yaxis(v):
+    A=np.array([[-1,0],[0,1]])
+    w=A@v
+    return w
 
+transformation_result_reflection_yaxis=transform_vectors(T_reflection_yaxis,e1,e2)
+print(e1)
+print(e2)
+print(transformation_result_reflection_yaxis)
+
+
+M_rotation_90_clockwise=np.array([[0,1],[-1,0]])
+M_shear_x=np.array([[1,0.5],[0,1]])
+
+print("M_rotation_90_clockwise:",M_rotation_90_clockwise)
+print("M_shear_x:",M_shear_x)
+
+print("M_rotation_90_clockwise@M_shear_x",M_rotation_90_clockwise@M_shear_x)
+print("M_shear_x@M_rotation_90_clockwise",M_shear_x@M_rotation_90_clockwise)
 
