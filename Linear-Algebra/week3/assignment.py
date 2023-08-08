@@ -36,3 +36,24 @@ m = 30
 print ('The shape of X: ' + str(shape_X))
 print ('The shape of Y: ' + str(shape_Y))
 print ('I have m = %d training examples!' % (m))
+
+
+# GRADED FUNCTION: layer_sizes
+
+def layer_sizes(X, Y):
+    """
+    Arguments:
+    X -- input dataset of shape (input size, number of examples)
+    Y -- labels of shape (output size, number of examples)
+
+    Returns:
+    n_x -- the size of the input layer
+    n_y -- the size of the output layer
+    """
+    ### START CODE HERE ### (~ 2 lines of code)
+    # Size of input layer.
+    n_x = X.shape[0]
+    # Size of output layer.
+    n_y = Y.shape[0]
+    ### END CODE HERE ###
+    return (n_x, n_y)
