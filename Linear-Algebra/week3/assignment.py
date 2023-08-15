@@ -91,3 +91,36 @@ def initialize_parameters(n_x, n_y):
 parameters = initialize_parameters(n_x, n_y)
 print("W = " + str(parameters["W"]))
 print("b = " + str(parameters["b"]))
+
+
+# GRADED FUNCTION: forward_propagation
+
+def forward_propagation(X, parameters):
+    """
+    Argument:
+    X -- input data of size (n_x, m)
+    parameters -- python dictionary containing your parameters (output of initialization function)
+
+    Returns:
+    Y_hat -- The output
+    """
+    # Retrieve each parameter from the dictionary "parameters".
+    ### START CODE HERE ### (~ 2 lines of code)
+    W = parameters["W"]
+    b = parameters["b"]
+    ### END CODE HERE ###
+
+    # Implement Forward Propagation to calculate Z.
+    ### START CODE HERE ### (~ 2 lines of code)
+    Z = np.dot(W,X)+b
+    Y_hat = Z
+    ### END CODE HERE ###
+
+    assert (Y_hat.shape == (n_y, X.shape[1]))
+
+    return Y_hat
+
+
+Y_hat = forward_propagation(X, parameters)
+
+print(Y_hat)
