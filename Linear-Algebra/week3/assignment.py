@@ -124,3 +124,32 @@ def forward_propagation(X, parameters):
 Y_hat = forward_propagation(X, parameters)
 
 print(Y_hat)
+
+
+def compute_cost(Y_hat, Y):
+    """
+    Computes the cost function as a sum of squares
+
+    Arguments:
+    Y_hat -- The output of the neural network of shape (n_y, number of examples)
+    Y -- "true" labels vector of shape (n_y, number of examples)
+
+    Returns:
+    cost -- sum of squares scaled by 1/(2*number of examples)
+
+    """
+    # Number of examples.
+    m = Y.shape[1]
+
+    # Compute the cost function.
+    cost = np.sum((Y_hat - Y) ** 2) / (2 * m)
+
+    return cost
+
+
+print("cost = " + str(compute_cost(Y_hat, Y)))
+
+parameters=w3_tools.train_nn(parameters,Y_hat,X,Y)
+
+print("W="+str(parameters["W"]))
+print("b="+str(parameters["b"]))
