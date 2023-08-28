@@ -153,3 +153,53 @@ parameters=w3_tools.train_nn(parameters,Y_hat,X,Y)
 
 print("W="+str(parameters["W"]))
 print("b="+str(parameters["b"]))
+
+
+# GRADED FUNCTION: nn_model
+
+def nn_model(X, Y, num_iterations=10, print_cost=False):
+    """
+    Arguments:
+    X -- dataset of shape (n_x, number of examples)
+    Y -- labels of shape (n_y, number of examples)
+    num_iterations -- number of iterations in the loop
+    print_cost -- if True, print the cost every iteration
+
+    Returns:
+    parameters -- parameters learnt by the model. They can then be used to make predictions.
+    """
+
+    n_x = layer_sizes(X, Y)[0]
+    n_y = layer_sizes(X, Y)[1]
+
+    # Initialize parameters
+    ### START CODE HERE ### (~ 1 line of code)
+    parameters = initialize_parameters(n_x,n_y)
+    ### END CODE HERE ###
+
+    # Loop
+    for i in range(0, num_iterations):
+
+        ### START CODE HERE ### (~ 2 lines of code)
+        # Forward propagation. Inputs: "X, parameters". Outputs: "Y_hat".
+        Y_hat = forward_propagation(X,parameters)
+
+        # Cost function. Inputs: "Y_hat, Y". Outputs: "cost".
+        cost = compute_cost(Y_hat,Y)
+        ### END CODE HERE ###
+
+        # Parameters update.
+        parameters = w3_tools.train_nn(parameters, Y_hat, X, Y)
+
+        # Print the cost every iteration.
+        if print_cost:
+            print("Cost after iteration %i: %f" % (i, cost))
+
+    return parameters
+
+parameters = nn_model(X, Y, num_iterations=15, print_cost=True)
+print("W = " + str(parameters["W"]))
+print("b = " + str(parameters["b"]))
+
+W_simple = parameters["W"]
+b_simple = parameters["b"]
