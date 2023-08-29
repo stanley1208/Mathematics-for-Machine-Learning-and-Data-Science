@@ -203,3 +203,18 @@ print("b = " + str(parameters["b"]))
 
 W_simple = parameters["W"]
 b_simple = parameters["b"]
+
+
+X_pred=np.array([-0.95,0.2,1.5])
+
+fig,ax=plt.subplots()
+plt.scatter(X,Y,color="black")
+
+plt.xlabel("$x$")
+plt.ylabel("$y$")
+
+X_line=np.arange(np.min(X[0,:]),np.max(X[0,:])*1.1,0.1)
+ax.plot(X_line,W_simple[0,0]*X_line+b_simple[0,0],"r")
+ax.plot(X_pred,W_simple[0,0]*X_pred+b_simple[0,0],"bo")
+plt.plot()
+plt.show()
