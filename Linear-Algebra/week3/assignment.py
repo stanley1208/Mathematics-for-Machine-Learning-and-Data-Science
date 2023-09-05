@@ -218,3 +218,11 @@ ax.plot(X_line,W_simple[0,0]*X_line+b_simple[0,0],"r")
 ax.plot(X_pred,W_simple[0,0]*X_pred+b_simple[0,0],"bo")
 plt.plot()
 plt.show()
+
+df=pd.read_csv('data/house_prices_train.csv')
+
+X_multi=df[['GrLivArea','OverallQual']]
+Y_multi=df['SalePrice']
+
+print(f'X_multi:\n{X_multi}')
+print(f'Y_multi:\n{Y_multi}')
