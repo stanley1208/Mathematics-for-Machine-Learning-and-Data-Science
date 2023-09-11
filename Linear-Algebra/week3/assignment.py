@@ -226,3 +226,24 @@ Y_multi=df['SalePrice']
 
 print(f'X_multi:\n{X_multi}')
 print(f'Y_multi:\n{Y_multi}')
+
+X_multi_norm=(X_multi-np.mean(X_multi)/np.std(X_multi))
+Y_multi_norm=(Y_multi-np.mean(Y_multi)/np.std(Y_multi))
+
+X_multi_norm=np.array(X_multi_norm).T
+Y_multi_norm=np.array(Y_multi_norm).reshape((1,len(Y_multi_norm)))
+
+print('The shape of X: '+str(X_multi_norm.shape))
+print('The shape of Y: '+str(Y_multi_norm.shape))
+print('I have m=%d training examples!'%(X_multi_norm.shape[1]))
+
+
+### START CODE HERE ### (~ 1 line of code)
+parameters_multi = nn_model(X_multi_norm, Y_multi_norm, num_iterations=100, print_cost=True)
+### END CODE HERE ###
+
+print("W = " + str(parameters_multi["W"]))
+print("b = " + str(parameters_multi["b"]))
+
+W_multi = parameters_multi["W"]
+b_multi = parameters_multi["b"]
