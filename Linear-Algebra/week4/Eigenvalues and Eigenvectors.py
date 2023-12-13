@@ -51,3 +51,11 @@ def plot_transformation(T, v1, v2):
 
 
 plot_transformation(A, e1, e2)
+
+A_eig=np.linalg.eig(A)
+print("Matrix A:",A)
+print("Eigenvalues and eigenvectors of matrix",A_eig)
+plot_transformation(A,A_eig[1][:,0],A_eig[1][:,1])
+print(np.linalg.norm(A_eig[1][:,0]))
+print(np.linalg.norm(A_eig[1][:,1]))
+
