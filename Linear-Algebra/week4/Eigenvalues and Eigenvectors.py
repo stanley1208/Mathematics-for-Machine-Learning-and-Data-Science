@@ -59,3 +59,14 @@ plot_transformation(A,A_eig[1][:,0],A_eig[1][:,1])
 print(np.linalg.norm(A_eig[1][:,0]))
 print(np.linalg.norm(A_eig[1][:,1]))
 
+
+### START CODE HERE ###
+# Define transformation matrix A_reflection_yaxis as a numpy array.
+A_reflection_yaxis = np.array([[-1,0],[0,1]])
+# Find eigenvalues and eigenvectors of matrix A_reflection_yaxis.
+A_reflection_yaxis_eig = np.linalg.eig(A_reflection_yaxis)
+### END CODE HERE ###
+
+print("Matrix A_reflection_yaxis:\n", A_reflection_yaxis,
+      "\n\n Eigenvalues and eigenvectors of matrix A_reflection_yaxis:\n", A_reflection_yaxis_eig)
+plot_transformation(A_reflection_yaxis, A_reflection_yaxis_eig[1][:,0], A_reflection_yaxis_eig[1][:,1])
