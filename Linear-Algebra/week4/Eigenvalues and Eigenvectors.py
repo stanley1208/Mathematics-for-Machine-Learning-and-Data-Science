@@ -70,3 +70,15 @@ A_reflection_yaxis_eig = np.linalg.eig(A_reflection_yaxis)
 print("Matrix A_reflection_yaxis:\n", A_reflection_yaxis,
       "\n\n Eigenvalues and eigenvectors of matrix A_reflection_yaxis:\n", A_reflection_yaxis_eig)
 plot_transformation(A_reflection_yaxis, A_reflection_yaxis_eig[1][:,0], A_reflection_yaxis_eig[1][:,1])
+
+
+### START CODE HERE ###
+# Define transformation matrix A_shear_x as a numpy array.
+A_shear_x = np.array([[1,0.5],[0,1]])
+# Find eigenvalues and eigenvectors of matrix A_shear_x.
+A_shear_x_eig = np.linalg.eig(A_shear_x)
+### END CODE HERE ###
+
+print("Matrix A_shear_x:\n", A_shear_x,
+      "\n\n Eigenvalues and eigenvectors of matrix A_shear_x:\n", A_shear_x_eig)
+plot_transformation(A_shear_x, A_shear_x_eig[1][:,0], A_shear_x_eig[1][:,1])
