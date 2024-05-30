@@ -3,8 +3,7 @@ import time
 
 import matplotlib.pyplot as plt
 
-# Visualization of a Vector
-import openpyxl.styles.colors
+
 
 
 def plot_vectors(list_v, list_label, list_color):
