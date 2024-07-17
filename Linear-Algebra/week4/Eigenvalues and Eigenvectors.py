@@ -45,6 +45,7 @@ A_rotation=np.array([[0,1],[-1,0]])
 A_rotation_eig=np.linalg.eig(A_rotation)
 print(f'Matrix A_shear_x:{A_rotation}')
 print(f'Eigenvalues of A_shear_x:{A_rotation_eig[0]}')
+
 print(f'Eigenvectors of A_shear_x:{A_rotation_eig[1]}')
 
 
@@ -66,3 +67,14 @@ utils.plot_transformation(A_scaling,A_scaling_eig[1][:,0], A_scaling_eig[1][:,1]
 print(f'Matrix A_scaling:{A_scaling}')
 print(f'Eigenvalues of A_scaling:{A_scaling_eig[0]}')
 print(f'Eigenvectors of A_scaling:{A_scaling_eig[1]}')
+
+
+A_projection=np.array([[1,0],[0,0]])
+A_projection_eig=np.linalg.eig(A_projection)
+
+utils.plot_transformation(A_projection,A_projection_eig[1][:,0], A_projection_eig[1][:,1]);
+
+print(f'Matrix A_projection:{A_projection}')
+print(f'Eigenvalues of A_projection:{A_projection_eig[0]}')
+print(f'Eigenvectors of A_projection:{A_projection_eig[1]}')
+
