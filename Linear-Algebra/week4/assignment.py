@@ -61,3 +61,12 @@ print("Check that PX=X element by element:" + str(np.isclose(X_inf, X_check, rto
 
 X_inf = X_inf/sum(X_inf)
 print(f"Long-run probabilities of being at each webpage:\n{X_inf[:,np.newaxis]}")
+
+
+imgs=utils.load_images('./data/')
+height,width=imgs[0].shape
+print(f'\n Your dataset has {len(imgs)} images of size {height}x{width} pixels\n')
+plt.imshow(imgs[0],cmap='gray')
+
+imgs_flatten=np.array([im.reshape(-1) for im in imgs])
+print(f'imgs_flatten shape: {imgs_flatten.shape}')
