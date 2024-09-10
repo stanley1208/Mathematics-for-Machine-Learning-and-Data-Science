@@ -70,3 +70,27 @@ plt.imshow(imgs[0],cmap='gray')
 
 imgs_flatten=np.array([im.reshape(-1) for im in imgs])
 print(f'imgs_flatten shape: {imgs_flatten.shape}')
+
+
+# Graded cell
+def center_data(Y):
+    """
+    Center your original data
+    Args:
+         Y (ndarray): input data. Shape (n_observations x n_pixels)
+    Outputs:
+        X (ndarray): centered data
+    """
+    ### START CODE HERE ###
+    mean_vector = np.mean(Y,axis=0)
+
+    # use np.reshape to reshape into a matrix with the same size as Y. Remember to use order='F'
+    mean_matrix = np.reshape(np.repeat(mean_vector, Y.shape[0]), Y.shape, order='F')
+
+    X = Y-mean_matrix
+    ### END CODE HERE ###
+    return X
+
+
+
+
