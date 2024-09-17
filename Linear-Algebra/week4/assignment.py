@@ -91,6 +91,28 @@ def center_data(Y):
     ### END CODE HERE ###
     return X
 
+X = center_data(imgs_flatten)
+plt.imshow(X[0].reshape(64,64), cmap='gray')
 
+
+def get_cov_matrix(X):
+    """ Calculate covariance matrix from centered data X
+    Args:
+        X (np.ndarray): centered data matrix
+    Outputs:
+        cov_matrix (np.ndarray): covariance matrix
+    """
+
+    ### START CODE HERE ###
+    n_samples=X.shape[0]
+    cov_matrix = np.dot(X.T, X)/(n_samples-1)
+    ### END CODE HERE ###
+
+    return cov_matrix
+
+
+cov_matrix=get_cov_matrix(X)
+
+print(f'Covariance matrix shape:\n{cov_matrix.shape}')
 
 
